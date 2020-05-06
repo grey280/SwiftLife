@@ -4,6 +4,28 @@ enum GridState{
     case dead, alive, minusOne, minusTwo, minusThree, minusFour
 }
 
+func weightedCoinFlip() -> Bool {
+    let coinFlip = Int(arc4random_uniform(6))
+    switch coinFlip {
+        case 0...4:
+        return false
+        default:
+        return true
+    }
+}
+
+//  extension GridState{
+//      static func weightedRandom() -> GridState {
+//          let coinFlip =  Int(arc4random_uniform(6) + 1)
+//          switch coinFlip {
+//              case 0...5:
+//              return .dead
+//              default:
+//              return .alive
+//          }
+//      }
+//  }
+
 public class Grid: ObservableObject {
     private var state: [[GridState]]
     var wrap: Bool
@@ -13,6 +35,12 @@ public class Grid: ObservableObject {
             return nil
         }
         state = [[GridState]](repeating: [GridState](repeating: .dead, count: height), count: width)
+        
+        for x in 0..<width{
+            for y in 0..<height {
+                state[x][y] = weightedCoinFlip() ? .alive : .dead
+            }
+        }
 //          cells = [[Bool]](repeating: [Bool](repeating: false, count: y), count: x)
         
         wrap = false

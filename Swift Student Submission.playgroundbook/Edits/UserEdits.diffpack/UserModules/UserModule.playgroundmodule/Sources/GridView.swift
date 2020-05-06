@@ -30,14 +30,14 @@ public struct GridView: View {
         self.grid = grid
     }
     
-    let timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     public var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<grid.width, id: \.self) { x in
                 VStack(spacing: 0){
                     ForEach(0..<self.grid.height, id: \.self) { y in 
-                        Rectangle().fill(Color.from(state: self.grid.cell(x: x, y: y)))
+                        Rectangle().fill(Color.from(state: self.grid.cell(x: x, y: y))).animation(.linear(duration: 1))
                     }
                 }
             }
