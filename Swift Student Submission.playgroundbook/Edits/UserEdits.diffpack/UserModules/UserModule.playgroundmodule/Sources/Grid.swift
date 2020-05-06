@@ -147,7 +147,7 @@ public class Grid: ObservableObject {
         case 0,1: // If they have fewer than two neighbors, they die of starvation
             return decreaseState(currentState)
         case 2: // If they have two neighbors and are alive, they stay alive
-            return currentState
+            return currentState == .alive ? .alive : decreaseState(currentState)
         case 3: // If they have three neighbors, they either stay alive or one is 'born' there.
             return .alive
         default: // If they have more than three neighbors, they die of overpopulation
