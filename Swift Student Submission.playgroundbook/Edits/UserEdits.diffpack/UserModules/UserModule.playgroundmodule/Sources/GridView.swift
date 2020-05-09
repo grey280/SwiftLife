@@ -41,7 +41,7 @@ public struct GridView: View {
                     }
                 }
             }
-        }.background(Color.black)
+        }.background(Color.black).drawingGroup()
         .onReceive(timer) {_ in 
             self.grid.iterate()
         }
