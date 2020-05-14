@@ -912,6 +912,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E6F7E6D2368FC9A008CC191 /* ModuleOverridingBuildSettings.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -919,6 +920,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5E6F7E6D2368FC9A008CC191 /* ModuleOverridingBuildSettings.xcconfig */;
 			buildSettings = {
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
