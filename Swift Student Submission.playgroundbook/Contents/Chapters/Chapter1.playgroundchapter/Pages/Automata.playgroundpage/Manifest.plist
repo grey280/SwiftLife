@@ -7,6 +7,8 @@
 	<key>LiveViewEdgeToEdge</key>
 	<false/>
 	<key>LiveViewMode</key>
-	<string>HiddenByDefault</string>
+	<string>VisibleByDefault</string>
+	<key>PlaygroundLoggingMode</key>
+	<string>Off</string>
 </dict>
 </plist>
