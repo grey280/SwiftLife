@@ -9,11 +9,12 @@
 			<string>import PlaygroundSupport
 import SwiftUI
 
-let grid = RandomGrid(width: 35, height: 35)!
-PlaygroundPage.current.setLiveView(GridView(grid: grid))
+let grid = RandomGrid(width: 45, height: 45)!
+PlaygroundPage.current.setLiveView(GridView(grid: grid, tickSpeed: 0.5))
+
 </string>
 			<key>ModifiedRange</key>
-			<string>{1, 144}</string>
+			<string>{1, 161}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

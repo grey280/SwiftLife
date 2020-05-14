@@ -31,24 +31,45 @@ extension Color {
     }
 }
 
+public struct GridColumnView<T: Grid>: View {
+    @ObservedObject var grid: T
+    let x: Int
+    let animationDuration: Double
+    
+    public var body: some View {
+        VStack(spacing: 0){
+            ForEach(0..<self.grid.height, id: \.self) { y in 
+                Rectangle()
+                    .fill(Color.from(state: self.grid[self.x, y]))
+                    .animation(.linear(duration: self.animationDuration))
+            }
+        }
+    }
+}
+
 public struct GridView<T: Grid>: View {
     @ObservedObject var grid: T
     
     public init(grid: T, tickSpeed: TimeInterval = 1.0){
         self.grid = grid
         self.timer = Timer.publish(every: tickSpeed, on: .main, in: .common).autoconnect()
+        self.animationDuration = tickSpeed
     }
     
     let timer: Publishers.Autoconnect<Timer.TimerPublisher>
+    let animationDuration: Double
     
     public var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<grid.width, id: \.self) { x in
-                VStack(spacing: 0){
+                /*VStack(spacing: 0){
                     ForEach(0..<self.grid.height, id: \.self) { y in 
-                        Rectangle().fill(Color.from(state: self.grid[x, y])).animation(.linear(duration: 1))
+                        Rectangle()
+                            .fill(Color.from(state: self.grid[x, y]))
+                            .animation(.linear(duration: self.animationDuration))
                     }
-                }
+                }*/
+                GridColumnView<T>(grid: self.grid, x: x, animationDuration: self.animationDuration)
             }
         }.background(Color.black).drawingGroup()
             .onReceive(timer) {_ in 
