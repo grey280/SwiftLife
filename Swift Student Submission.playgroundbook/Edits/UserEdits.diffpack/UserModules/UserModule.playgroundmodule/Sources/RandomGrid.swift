@@ -13,32 +13,14 @@ func weightedCoinFlip() -> Bool {
 public class RandomGrid: ObservableObject, Grid {
     public subscript(x: Int, y: Int) -> CellState {
         get {
-            var nX = x, nY = y
-            if wrap{
-                assertionFailure()
-                if x>=width{
-                    nX = 0
-                }
-                if x<0{
-                    nX = width-1
-                }
-                if y>=height{
-                    nY = 0
-                }
-                if y<0{
-                    nY = height-1
-                }
-            }else{
-                if (x>width - 1 || x<0 || y>height - 1 || y<0){
-                    return .dead
-                }
+            if (x>width - 1 || x<0 || y>height - 1 || y<0){
+                return .dead
             }
-            return state[nX][nY]
+            return state[x][y]
         }
     }
 
     private var state: [[CellState]]
-    var wrap: Bool
     
     required public init?(width: Int, height: Int){
         if (width <= 0 || height <= 0){
@@ -51,9 +33,6 @@ public class RandomGrid: ObservableObject, Grid {
                 state[x][y] = weightedCoinFlip() ? .alive : .dead
             }
         }
-//          cells = [[Bool]](repeating: [Bool](repeating: false, count: y), count: x)
-        
-        wrap = false
     }
     
     /// The width of the grid
