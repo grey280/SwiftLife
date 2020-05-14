@@ -4,9 +4,11 @@
 <dict>
 	<key>Name</key>
 	<string>Automata</string>
+	<key>Version</key>
+	<string>1.1</string>
 	<key>TemplatePageFilename</key>
 	<string>Template.playgroundpage</string>
-	<key>InitialUserPages</key>
+	<key>Pages</key>
 	<array>
 		<string>Automata.playgroundpage</string>
 		<string>Grid.playgroundpage</string>
