@@ -1,7 +1,7 @@
 import SwiftUI
 
 public enum CellState{
-    case dead, alive, minusOne, minusTwo, minusThree, minusFour
+    case dead, alive, minusOne, minusTwo, minusThree, minusFour, minusFive, minusSix, minusSeven
     
     public func decrease() -> CellState {
         switch self {
@@ -14,7 +14,13 @@ public enum CellState{
         case .minusThree:
             return .minusFour
         case .minusFour:
-            return .minusFour // so we never fully fade out after having been alive - leaves nice trails, ideally
+            return .minusFive
+        case .minusFive:
+            return .minusSix
+        case .minusSix:
+            return .minusSeven
+        case .minusSeven:
+            return .minusSeven// so we never fully fade out after having been alive - leaves nice trails, ideally
         case .dead:
             return .dead
         }
