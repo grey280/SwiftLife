@@ -26,11 +26,15 @@
 			</dict>
 			<dict>
 				<key>File</key>
-				<string>UserModules/UserModule.playgroundmodule/Sources/Grid.swift</string>
+				<string>UserModules/UserModule.playgroundmodule/Sources/GridView.swift</string>
 			</dict>
 			<dict>
 				<key>File</key>
-				<string>UserModules/UserModule.playgroundmodule/Sources/GridView.swift</string>
+				<string>UserModules/UserModule.playgroundmodule/Sources/RandomGrid.swift</string>
+			</dict>
+			<dict>
+				<key>File</key>
+				<string>UserModules/UserModule.playgroundmodule/Sources/Grid.swift</string>
 			</dict>
 		</array>
 		<key>Modified</key>

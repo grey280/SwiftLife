@@ -2,7 +2,7 @@
 import SwiftUI
 
 extension Color {
-    static func from(state gridState: GridState) -> Color{
+    static func from(state gridState: CellState) -> Color{
         switch gridState{
             case .dead:
             return .black
@@ -23,10 +23,10 @@ extension Color {
     }
 }
 
-public struct GridView: View {
-    @ObservedObject var grid: Grid
+public struct GridView<T: Grid>: View {
+    @ObservedObject var grid: T
     
-    public init(grid: Grid){
+    public init(grid: T){
         self.grid = grid
     }
     
@@ -37,7 +37,7 @@ public struct GridView: View {
             ForEach(0..<grid.width, id: \.self) { x in
                 VStack(spacing: 0){
                     ForEach(0..<self.grid.height, id: \.self) { y in 
-                        Rectangle().fill(Color.from(state: self.grid.cell(x: x, y: y))).animation(.linear(duration: 1))
+                        Rectangle().fill(Color.from(state: self.grid[x, y])).animation(.linear(duration: 1))
                     }
                 }
             }
