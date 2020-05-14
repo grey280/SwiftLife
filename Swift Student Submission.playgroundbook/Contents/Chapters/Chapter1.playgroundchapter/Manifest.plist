@@ -8,7 +8,8 @@
 	<string>Template.playgroundpage</string>
 	<key>InitialUserPages</key>
 	<array>
-		<string>My Playground.playgroundpage</string>
+		<string>Automata.playgroundpage</string>
+		<string>Grid.playgroundpage</string>
 	</array>
 </dict>
 </plist>
