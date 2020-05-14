@@ -10,4 +10,7 @@ import SwiftUI
  */
 
 let grid = StaticGrid(width: 5, height: 5)!
-PlaygroundPage.current.setLiveView(GridView(grid: grid))
+let gridView = GridView(grid: grid)
+//#-hidden-code
+PlaygroundPage.current.setLiveView(gridView)
+//#-end-hidden-code

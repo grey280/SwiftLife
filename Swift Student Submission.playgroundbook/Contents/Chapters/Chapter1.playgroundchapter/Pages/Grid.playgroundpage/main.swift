@@ -21,4 +21,7 @@ import SwiftUI
  You can watch it happen - this `RandomGrid` picks random spots for cells to appear at the start.
  */
 let grid = RandomGrid(width: 45, height: 45)!
-PlaygroundPage.current.setLiveView(GridView(grid: grid, tickSpeed: 0.5))
+let gridView = GridView(grid: grid, tickSpeed: 0.5)
+//#-hidden-code
+PlaygroundPage.current.setLiveView(gridView)
+//#-end-hidden-code
