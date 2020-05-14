@@ -20,14 +20,6 @@
 		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/UserManifest.plist</key>
 		<string>Added</string>
-		<key>UserModules/UserModule.playgroundmodule/Sources/Grid.swift</key>
-		<string>Added</string>
-		<key>UserModules/UserModule.playgroundmodule/Sources/GridView.swift</key>
-		<string>Added</string>
-		<key>UserModules/UserModule.playgroundmodule/Sources/RandomGrid.swift</key>
-		<string>Added</string>
-		<key>UserModules/UserModule.playgroundmodule/Sources/StaticGrid.swift</key>
-		<string>Added</string>
 	</dict>
 	<key>FormatVersion</key>
 	<integer>2</integer>
