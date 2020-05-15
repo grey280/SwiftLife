@@ -7,8 +7,6 @@ Now we're going to play around a bit. Let's feed in a cool pattern, instead of j
 
 We're going to use Wolfram's [Rule 110](https://mathworld.wolfram.com/Rule110.html). It's a *different* kind of cellular automata; go ahead and tinker with the code below, or just watch it run.
 */
-//#-editable-code
-
 
 public class WolframGrid: IteratingGrid {
 	required public override init?(width: Int, height: Int){
@@ -22,6 +20,7 @@ public class WolframGrid: IteratingGrid {
 	}
 
 	override public func iteratedCellState(x: Int, y: Int) -> CellState {
+		//#-editable-code
 		if (y < height - 1){
 			return super.iteratedCellState(x: x, y: y)
 		}
@@ -44,6 +43,7 @@ public class WolframGrid: IteratingGrid {
 			default:
 			return self[x,y].decrease()
 		}
+		//#-end-editable-code
 	}
 }
 
