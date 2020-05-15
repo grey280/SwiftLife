@@ -26,19 +26,19 @@ public class WolframGrid: IteratingGrid {
 		}
 		// use the Wolfram Rule here instead
 		switch (self[x-1, y], self[x, y], self[x+1, y]){
-			case .alive, .alive, .alive:
+			case (.alive, .alive, .alive):
 			return self[x, y].decrease()
-			case .alive, .alive, _::
+			case (.alive, .alive, _):
 			return .alive
-			case .alive, _, .alive:
+			case (.alive, _, .alive):
 			return .alive
-			case .alive, _, _:
+			case (.alive, _, _):
 			return self[x, y].decrease()
-			case _, .alive, .alive:
+			case (_, .alive, .alive):
 			return .alive
-			case _, .alive, _:
+			case (_, .alive, _):
 			return .alive
-			case _, _, .alive:
+			case (_, _, .alive):
 			return .alive
 			default:
 			return self[x,y].decrease()
