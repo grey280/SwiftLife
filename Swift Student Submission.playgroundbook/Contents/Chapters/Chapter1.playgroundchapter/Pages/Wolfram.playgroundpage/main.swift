@@ -15,17 +15,19 @@ public class WolframGrid: IteratingGrid {
 		}
 		super.init(width: width, height: height)
 		//#-editable-code
-		self[width-1, height-1] = .alive // the starting point for the Wolfram Rule
+		// the Woflram Rule needs at least one cell alive to get started
+		self[width-6, height-1] = .alive 
 		//#-end-editable-code
 	}
 
 	override public func iteratedCellState(x: Int, y: Int) -> CellState {
 		//#-editable-code
 		if (y < height - 10){
+			// above this row, go back to normal Cellular Automata
 			return super.iteratedCellState(x: x, y: y)
 		}
 		if (y == height - 1){
-			// use the Wolfram Rule here instead
+			// in the very bottom rule, we do all the Wolfram calculations
 			switch (self[x-1, y], self[x, y], self[x+1, y]){
 				case (.alive, .alive, .alive):
 				return self[x, y].decrease()
@@ -45,6 +47,7 @@ public class WolframGrid: IteratingGrid {
 				return self[x,y].decrease()
 			}
 		}
+		// in between Cellular Automata-land and Wolfram-land, we just move the row up each time
 		return self[x, y+1]
 		//#-end-editable-code
 	}
