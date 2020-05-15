@@ -18,7 +18,7 @@ open class IteratingGrid: ObservableObject, Grid {
 
     private var state: [[CellState]]
     
-    required open init?(width: Int, height: Int){
+    required public init?(width: Int, height: Int){
         if (width <= 0 || height <= 0){
             return nil
         }

@@ -49,7 +49,6 @@ public class WolframGrid: IteratingGrid {
 
 let grid = WolframGrid(width: /*#-editable-code*/45/*#-end-editable-code*/, height: /*#-editable-code*/45/*#-end-editable-code*/)!
 let gridView = GridView(grid: grid, tickSpeed: /*#-editable-code*/0.5/*#-end-editable-code*/)
-//#-end-editable-code
 //#-hidden-code
 PlaygroundPage.current.setLiveView(gridView)
 //#-end-hidden-code
