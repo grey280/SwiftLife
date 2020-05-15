@@ -20,6 +20,30 @@ import SwiftUI
  
  You can watch it happen - this `RandomGrid` picks random spots for cells to appear at the start.
  */
+func weightedCoinFlip() -> Bool {
+    let coinFlip = Int(arc4random_uniform(6))
+    switch coinFlip {
+        case 0...4:
+        return false
+        default:
+        return true
+    }
+}
+
+public class RandomGrid: IteratingGrid {
+    required public override init?(width: Int, height: Int){
+        if (width <= 0 || height <= 0){
+            return nil
+        }
+        super.init(width: width, height: height)
+        for x in 0..<width{
+            for y in 0..<height {
+                self[x, y] = weightedCoinFlip() ? .alive : .dead
+            }
+        }
+    }
+}
+
 let grid = RandomGrid(width: /*#-editable-code*/45/*#-end-editable-code*/, height: /*#-editable-code*/45/*#-end-editable-code*/)!
 let gridView = GridView(grid: grid, tickSpeed: /*#-editable-code*/0.5/*#-end-editable-code*/)
 //#-hidden-code
