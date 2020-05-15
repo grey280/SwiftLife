@@ -12,6 +12,7 @@
 	<array>
 		<string>Automata.playgroundpage</string>
 		<string>Grid.playgroundpage</string>
+		<string>Wolfram.playgroundpage</string>
 	</array>
 </dict>
 </plist>
