@@ -1,7 +1,7 @@
 import SwiftUI
 
-public class IteratingGrid: ObservableObject, Grid {
-    public subscript(x: Int, y: Int) -> CellState {
+open class IteratingGrid: ObservableObject, Grid {
+    open subscript(x: Int, y: Int) -> CellState {
         get {
             if (x>width - 1 || x<0 || y>height - 1 || y<0){
                 return .dead
@@ -18,7 +18,7 @@ public class IteratingGrid: ObservableObject, Grid {
 
     private var state: [[CellState]]
     
-    required public init?(width: Int, height: Int){
+    required open init?(width: Int, height: Int){
         if (width <= 0 || height <= 0){
             return nil
         }
@@ -35,7 +35,7 @@ public class IteratingGrid: ObservableObject, Grid {
     }
     
     /// Iterate the grid using the standard rules of cellular automata/Conway's Game of Life
-    public func iterate(){
+    open func iterate(){
         var newCells = state // array of value type is a value type, with copy-on-write
         for x in 0..<newCells.count{
             for y in 0..<newCells[x].count{
@@ -47,7 +47,7 @@ public class IteratingGrid: ObservableObject, Grid {
     }
     
     
-    public func iteratedCellState(x: Int, y: Int) -> CellState {
+    open func iteratedCellState(x: Int, y: Int) -> CellState {
         var neighborLiveCount = 0
         let currentState = self[x, y]
         
