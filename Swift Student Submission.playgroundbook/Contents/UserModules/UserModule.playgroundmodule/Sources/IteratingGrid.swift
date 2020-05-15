@@ -23,12 +23,6 @@ public class IteratingGrid: ObservableObject, Grid {
             return nil
         }
         state = [[CellState]](repeating: [CellState](repeating: .dead, count: height), count: width)
-        
-        for x in 0..<width{
-            for y in 0..<height {
-                state[x][y] = weightedCoinFlip() ? .alive : .dead
-            }
-        }
     }
     
     /// The width of the grid
