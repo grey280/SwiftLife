@@ -21,28 +21,31 @@ public class WolframGrid: IteratingGrid {
 
 	override public func iteratedCellState(x: Int, y: Int) -> CellState {
 		//#-editable-code
-		if (y < height - 1){
+		if (y < height - 10){
 			return super.iteratedCellState(x: x, y: y)
 		}
-		// use the Wolfram Rule here instead
-		switch (self[x-1, y], self[x, y], self[x+1, y]){
-			case (.alive, .alive, .alive):
-			return self[x, y].decrease()
-			case (.alive, .alive, _):
-			return .alive
-			case (.alive, _, .alive):
-			return .alive
-			case (.alive, _, _):
-			return self[x, y].decrease()
-			case (_, .alive, .alive):
-			return .alive
-			case (_, .alive, _):
-			return .alive
-			case (_, _, .alive):
-			return .alive
-			default:
-			return self[x,y].decrease()
+		if (y == height - 1){
+			// use the Wolfram Rule here instead
+			switch (self[x-1, y], self[x, y], self[x+1, y]){
+				case (.alive, .alive, .alive):
+				return self[x, y].decrease()
+				case (.alive, .alive, _):
+				return .alive
+				case (.alive, _, .alive):
+				return .alive
+				case (.alive, _, _):
+				return self[x, y].decrease()
+				case (_, .alive, .alive):
+				return .alive
+				case (_, .alive, _):
+				return .alive
+				case (_, _, .alive):
+				return .alive
+				default:
+				return self[x,y].decrease()
+			}
 		}
+		return self[x, y+1]
 		//#-end-editable-code
 	}
 }
