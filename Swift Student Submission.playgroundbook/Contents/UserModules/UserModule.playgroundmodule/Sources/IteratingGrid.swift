@@ -1,3 +1,5 @@
+import SwiftUI
+
 public class IteratingGrid: ObservableObject, Grid {
     public subscript(x: Int, y: Int) -> CellState {
         get {
