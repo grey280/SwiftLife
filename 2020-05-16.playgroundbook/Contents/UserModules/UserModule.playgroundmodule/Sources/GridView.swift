@@ -62,13 +62,7 @@ public struct GridView<T: Grid>: View {
     public var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<grid.width, id: \.self) { x in
-                /*VStack(spacing: 0){
-                    ForEach(0..<self.grid.height, id: \.self) { y in 
-                        Rectangle()
-                            .fill(Color.from(state: self.grid[x, y]))
-                            .animation(.linear(duration: self.animationDuration))
-                    }
-                }*/
+                
                 GridColumnView<T>(grid: self.grid, x: x, animationDuration: self.animationDuration)
             }
         }.background(Color.black).drawingGroup()
