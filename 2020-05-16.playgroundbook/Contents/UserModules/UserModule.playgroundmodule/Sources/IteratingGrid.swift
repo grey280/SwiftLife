@@ -1,22 +1,18 @@
 import SwiftUI
 
-func weightedCoinFlip() -> Bool {
-    let coinFlip = Int(arc4random_uniform(6))
-    switch coinFlip {
-        case 0...4:
-        return false
-        default:
-        return true
-    }
-}
-
-public class RandomGrid: ObservableObject, Grid {
-    public subscript(x: Int, y: Int) -> CellState {
+open class IteratingGrid: ObservableObject, Grid {
+    open subscript(x: Int, y: Int) -> CellState {
         get {
             if (x>width - 1 || x<0 || y>height - 1 || y<0){
                 return .dead
             }
             return state[x][y]
+        }
+        set {
+            if (x>width - 1 || x<0 || y>height - 1 || y<0){
+                return 
+            }
+            state[x][y] = newValue
         }
     }
 
@@ -27,12 +23,6 @@ public class RandomGrid: ObservableObject, Grid {
             return nil
         }
         state = [[CellState]](repeating: [CellState](repeating: .dead, count: height), count: width)
-        
-        for x in 0..<width{
-            for y in 0..<height {
-                state[x][y] = weightedCoinFlip() ? .alive : .dead
-            }
-        }
     }
     
     /// The width of the grid
@@ -45,7 +35,7 @@ public class RandomGrid: ObservableObject, Grid {
     }
     
     /// Iterate the grid using the standard rules of cellular automata/Conway's Game of Life
-    public func iterate(){
+    open func iterate(){
         var newCells = state // array of value type is a value type, with copy-on-write
         for x in 0..<newCells.count{
             for y in 0..<newCells[x].count{
@@ -57,7 +47,7 @@ public class RandomGrid: ObservableObject, Grid {
     }
     
     
-    private func iteratedCellState(x: Int, y: Int) -> CellState {
+    open func iteratedCellState(x: Int, y: Int) -> CellState {
         var neighborLiveCount = 0
         let currentState = self[x, y]
         
